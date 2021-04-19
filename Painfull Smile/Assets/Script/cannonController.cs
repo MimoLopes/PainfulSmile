@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cannonsController : MonoBehaviour
+public class cannonController : MonoBehaviour
 {
     private GameObject target;
     [SerializeField] private bool player;

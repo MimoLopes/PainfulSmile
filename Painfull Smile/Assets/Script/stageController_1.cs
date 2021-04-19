@@ -11,21 +11,24 @@ public class stageController_1 : MonoBehaviour
     [SerializeField] private GameObject winText;
 
     [SerializeField] private GameObject points;
-    [SerializeField] private Text pointsText;
     [SerializeField] private GameObject playAgainButton;
     [SerializeField] private GameObject mainMenuButton;
     [SerializeField] private GameObject enemy_1;
     [SerializeField] private GameObject enemy_2;
+    [SerializeField] private Text pointsText;
     public int publicPoints;
     private float gameTime;
     private float reservedGameTime;
     private float spawnTime;
     private float reservedspawnTime;
+    private bool endGame;
 
     [SerializeField] private float radius = 1;
     // Start is called before the first frame update
     void Start()
     {
+        endGame = false;
+
         gameTime = FindObjectOfType<gameplayInfo>().publicGameTime;
         spawnTime = FindObjectOfType<gameplayInfo>().publicSpawnTime;
         reservedGameTime = gameTime;
@@ -41,7 +44,7 @@ public class stageController_1 : MonoBehaviour
         spawnTime -= Time.deltaTime;
 
         
-        if(spawnTime <= 0 && reservedspawnTime > 0){
+        if(spawnTime <= 0 && reservedspawnTime > 0 && gameTime > 0){
             
             float whichEnemy = Random.Range(0, 2f); 
 
@@ -58,15 +61,23 @@ public class stageController_1 : MonoBehaviour
 
         if(gameTime <= 0 && player.activeSelf){
             winText.SetActive(true);
-            points.SetActive(true);
-            playAgainButton.SetActive(true);
-            mainMenuButton.SetActive(true);
+            endGame = true;
         }
         if(gameTime > 0 && !player.activeSelf){
             gameOverText.SetActive(true);
+            endGame = true;
+        }
+
+        if(endGame){
             points.SetActive(true);
             playAgainButton.SetActive(true);
             mainMenuButton.SetActive(true);
+
+            Destroy(GameObject.FindObjectOfType<enemyController>());
+            Destroy(GameObject.FindObjectOfType<playerController>());
+            Destroy(GameObject.FindObjectOfType<cannonController>());
+            Destroy(GameObject.FindObjectOfType<bulletController>());
+
         }
     }
 
