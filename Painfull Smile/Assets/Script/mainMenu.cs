@@ -16,8 +16,4 @@ public class mainMenu : MonoBehaviour
         otherMenu.SetActive(true);
         transform.parent.gameObject.SetActive(false);
     }
-
-
-
-
 }

@@ -188,11 +188,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537874623144040634}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
-  m_LocalScale: {x: 2.4999995, y: 5, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.70710677, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 1, z: 1}
+  m_LocalScale: {x: 2.4999998, y: 5, z: 1}
   m_Children: []
-  m_Father: {fileID: 6797261123137573241}
+  m_Father: {fileID: 1173662708840312262}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &2711686324399363870
@@ -328,37 +328,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &5695199217269010601
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6797261123137573241}
-  m_Layer: 0
-  m_Name: helthBarPosition
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6797261123137573241
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5695199217269010601}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 5469476914934097921}
-  m_Father: {fileID: 6318627199976373491}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6318627198286406621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,7 +1267,7 @@ Transform:
   - {fileID: 6318627199351950664}
   - {fileID: 6318627198913702932}
   - {fileID: 6318627199899178020}
-  - {fileID: 6797261123137573241}
+  - {fileID: 1173662708840312262}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1437,13 +1406,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8be59a7f8eee9fe498ef402d5b6f413c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 5695199217269010601}
   enemy_1: 1
   enemy_2: 0
-  shipSpeed: 0.0075
-  rotateSpeed: 0.0025
-  wichSpot: 0
-  distance: 0
+  shipSpeed: 4.5
+  target: {fileID: 0}
 --- !u!114 &774779417878673970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1482,6 +1448,7 @@ MonoBehaviour:
   enemy_2: 0
   shipLife: 100
   healthBar: {fileID: 1537874623144040634}
+  healthBarPosition: {fileID: 6537215551368769049}
   hull:
   - {fileID: 232182367150337597}
   largeSail:
@@ -1489,3 +1456,34 @@ MonoBehaviour:
   smalSail:
   - {fileID: 902563564692143755}
   explosion: {fileID: 5168540121981247366, guid: 7beee2a435ad84c48b1b4a805ea52d56, type: 3}
+--- !u!1 &6537215551368769049
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1173662708840312262}
+  m_Layer: 0
+  m_Name: healthBarPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1173662708840312262
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6537215551368769049}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 5469476914934097921}
+  m_Father: {fileID: 6318627199976373491}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

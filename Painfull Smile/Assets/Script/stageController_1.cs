@@ -18,7 +18,6 @@ public class stageController_1 : MonoBehaviour
     [SerializeField] private Text pointsText;
     public int publicPoints;
     private float gameTime;
-    private float reservedGameTime;
     private float spawnTime;
     private float reservedspawnTime;
     private bool endGame;
@@ -31,7 +30,6 @@ public class stageController_1 : MonoBehaviour
 
         gameTime = FindObjectOfType<gameplayInfo>().publicGameTime;
         spawnTime = FindObjectOfType<gameplayInfo>().publicSpawnTime;
-        reservedGameTime = gameTime;
         reservedspawnTime = spawnTime;
     }
 
@@ -44,13 +42,13 @@ public class stageController_1 : MonoBehaviour
         spawnTime -= Time.deltaTime;
 
         
-        if(spawnTime <= 0 && reservedspawnTime > 0 && gameTime > 0){
+        if(spawnTime <= 0 && reservedspawnTime > 0 && gameTime > 0 && !endGame){
             
             float whichEnemy = Random.Range(0, 2f); 
 
             Vector3 position = Random.insideUnitCircle * radius;
 
-            if(whichEnemy > 1){
+            if(whichEnemy >= 1){
                 Instantiate(enemy_1, position, Quaternion.identity);
             }
             else{
@@ -59,11 +57,12 @@ public class stageController_1 : MonoBehaviour
             spawnTime = reservedspawnTime;
         }
 
-        if(gameTime <= 0 && player.activeSelf){
+        if(player && gameTime <= 0){
             winText.SetActive(true);
             endGame = true;
         }
-        if(gameTime > 0 && !player.activeSelf){
+
+        if(!player && gameTime > 0){
             gameOverText.SetActive(true);
             endGame = true;
         }
@@ -77,7 +76,6 @@ public class stageController_1 : MonoBehaviour
             Destroy(GameObject.FindObjectOfType<playerController>());
             Destroy(GameObject.FindObjectOfType<cannonController>());
             Destroy(GameObject.FindObjectOfType<bulletController>());
-
         }
     }
 
@@ -88,7 +86,6 @@ public class stageController_1 : MonoBehaviour
     }
 
     public void PlayAgain(){
-        gameTime = reservedGameTime;
         SceneManager.LoadScene (1);
     }
 

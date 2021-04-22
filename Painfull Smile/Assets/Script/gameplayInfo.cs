@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -31,12 +32,14 @@ public class gameplayInfo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(options.activeSelf){
-        reservedGameTime = float.Parse(gameTime.text);
-        publicGameTime = reservedGameTime;
+        if(SceneManager.GetActiveScene().buildIndex == 0){
+            if(options.activeSelf){
+            reservedGameTime = float.Parse(gameTime.text);
+            publicGameTime = reservedGameTime;
 
-        reservedSpawnTime = float.Parse(spawnTime.text);
-        publicSpawnTime = reservedSpawnTime;
+            reservedSpawnTime = float.Parse(spawnTime.text);
+            publicSpawnTime = reservedSpawnTime;
+            }
         }
     }
 }

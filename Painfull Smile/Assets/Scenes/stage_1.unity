@@ -12204,7 +12204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1105088853}
-        m_TargetAssemblyTypeName: StageController_1, Assembly-CSharp
+        m_TargetAssemblyTypeName: stageController_1, Assembly-CSharp
         m_MethodName: MainMenu
         m_Mode: 1
         m_Arguments:
@@ -12286,11 +12286,11 @@ MonoBehaviour:
   gameOverText: {fileID: 1852936066}
   winText: {fileID: 1433995166}
   points: {fileID: 2138816992}
-  pointsText: {fileID: 2138816994}
   playAgainButton: {fileID: 2077627517}
   mainMenuButton: {fileID: 887187883}
   enemy_1: {fileID: 6318627199976373489, guid: 7c4977a0ea810f649adbaaa6d078a5da, type: 3}
   enemy_2: {fileID: 3426395095951214754, guid: ec6ff9a962df4c749b19057ee855ddd2, type: 3}
+  pointsText: {fileID: 2138816994}
   publicPoints: 0
   radius: 40
 --- !u!4 &1105088854
@@ -122491,8 +122491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -17.0687, y: -5.6414}
-  m_SizeDelta: {x: 125.8625, y: 41.2827}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 250, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1852936068
 MonoBehaviour:
@@ -122521,7 +122521,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -145961,7 +145961,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1105088853}
-        m_TargetAssemblyTypeName: StageController_1, Assembly-CSharp
+        m_TargetAssemblyTypeName: stageController_1, Assembly-CSharp
         m_MethodName: PlayAgain
         m_Mode: 1
         m_Arguments:

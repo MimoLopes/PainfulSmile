@@ -32,6 +32,7 @@ public class cannonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         distance = Vector3.Distance(target.transform.position, transform.position);
 
         if(player){
@@ -41,7 +42,7 @@ public class cannonController : MonoBehaviour
                 cannonFrontContdown = reservedCannonFrontContdown;
             }
             else{
-                cannonFrontContdown -= 0.1f;
+                cannonFrontContdown -= Time.deltaTime;
             }
 
             if(Input.GetMouseButtonDown(0) && cannonRContdown <= 0){
@@ -51,7 +52,7 @@ public class cannonController : MonoBehaviour
                 cannonRContdown = reservedCannonRContdown;
             }
             else{
-                    cannonRContdown -= 0.1f;
+                    cannonRContdown -= Time.deltaTime;
             }
 
             if(Input.GetMouseButtonDown(1) && cannonLContdown <= 0){
@@ -61,29 +62,30 @@ public class cannonController : MonoBehaviour
                 cannonLContdown = reservedCannonLContdown;
             }
             else{
-                cannonLContdown -= 0.1f;
+                cannonLContdown -= Time.deltaTime;
             } 
         }
 
         if(enemy_2 && distance < 4){
-            if(cannonRContdown <= 0 && FindObjectOfType<enemyController>().wichSpot > 1f){
+
+            if(cannonRContdown <= 0 && gameObject.GetComponentInParent<enemyController>().wichSpot >= 1f){
                 for (int i = 0; i < cannonR.Length; i++){
                 Instantiate(cannonBall, cannonR[i].transform.position, cannonR[i].transform.rotation);
                 }
                 cannonRContdown = reservedCannonRContdown;
             }
             else{
-                    cannonRContdown -= 0.1f;
+                    cannonRContdown -= Time.deltaTime;
             }
 
-            if(cannonLContdown <= 0 && FindObjectOfType<enemyController>().wichSpot < 1f){
+            if(cannonLContdown <= 0 && gameObject.GetComponentInParent<enemyController>().wichSpot < 1f){
                 for (int i = 0; i < cannonL.Length; i++){
                     Instantiate(cannonBall, cannonL[i].transform.position, cannonL[i].transform.rotation);
                 }
                 cannonLContdown = reservedCannonLContdown;
             }
             else{
-                cannonLContdown -= 0.1f;
+                cannonLContdown -= Time.deltaTime;
             }
         }
     }

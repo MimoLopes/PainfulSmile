@@ -10,6 +10,7 @@ public class appearanceController : MonoBehaviour
     [SerializeField] private float shipLife;
     private float reservedShipLife;
     [SerializeField] private GameObject healthBar;
+    [SerializeField] private GameObject healthBarPosition;
     [SerializeField] private GameObject[] hull;
     [SerializeField] private GameObject[] largeSail;
     [SerializeField] private GameObject[] smalSail;
@@ -32,6 +33,8 @@ public class appearanceController : MonoBehaviour
         healthBarScale.y = reservedHealthBarScale.y * (shipLife / 100);
 
         healthBar.transform.localScale = Vector3.Lerp(healthBar.transform.localScale, healthBarScale, Time.deltaTime);
+
+        healthBarPosition.transform.rotation = Quaternion.Euler(0, 0, -healthBarPosition.transform.rotation.z);
 
         for(int i = 0; i < hull.Length; i++){
             if(shipLife == reservedShipLife && hull[i] == hull[hull.Length -1]){

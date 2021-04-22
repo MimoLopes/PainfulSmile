@@ -1768,6 +1768,10 @@ PrefabInstance:
       propertyPath: shipRotateSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5450713266274478782, guid: 29c42bfcd7c781642927cd5e316f3f58, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7180620519746902428, guid: 29c42bfcd7c781642927cd5e316f3f58, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3415,7 +3419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 0
 --- !u!222 &1254945455
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3494,7 +3498,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: 0
 --- !u!222 &1413708101
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour
 {
-    [SerializeField] private GameObject healthBar;
     [SerializeField] private float shipSpeed;
     private float reservedShipSpeed;
     [SerializeField] private float shipRotateSpeed;
@@ -19,23 +18,22 @@ public class playerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0, shipSpeed, 0);
+
+        transform.Translate(0, shipSpeed * Time.deltaTime, 0);
 
         if(Input.GetKey(KeyCode.W)){
-            shipSpeed = Mathf.Lerp(0, reservedShipSpeed, 0.1f);
+            shipSpeed = reservedShipSpeed;
         }
         else{
-            shipSpeed = Mathf.Lerp(shipSpeed, 0, 0.01f);
+            shipSpeed = Mathf.Lerp(shipSpeed, 0, Time.deltaTime);
         }
 
         if(Input.GetKey(KeyCode.D)){
-            transform.Rotate(new Vector3(0, 0, -shipRotateSpeed));
-            healthBar.transform.Rotate(new Vector3(0, 0, shipRotateSpeed));
+            transform.Rotate(new Vector3(0, 0, -shipRotateSpeed * Time.deltaTime));
         }
 
         if(Input.GetKey(KeyCode.A)){
-            transform.Rotate(new Vector3(0, 0, shipRotateSpeed));
-            healthBar.transform.Rotate(new Vector3(0, 0, -shipRotateSpeed));
+            transform.Rotate(new Vector3(0, 0, shipRotateSpeed * Time.deltaTime));
         }
     }
 }

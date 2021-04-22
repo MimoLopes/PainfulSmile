@@ -16,7 +16,7 @@ public class cameraController : MonoBehaviour
     void Update()
     {
         if(ship){
-        transform.position = Vector3.Lerp(transform.position, new Vector3(ship.transform.position.x, ship.transform.position.y, transform.position.z), Time.deltaTime*2);
+        transform.position = Vector3.Lerp(transform.position, new Vector3(ship.transform.position.x, ship.transform.position.y, transform.position.z), Time.deltaTime*2.5f);
         }
     }
 }
