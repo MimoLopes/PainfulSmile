@@ -34,10 +34,10 @@ public class gameplayInfo : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 0){
             if(options.activeSelf){
-            reservedGameTime = float.Parse(gameTime.text);
+            float.TryParse(gameTime.text, out reservedGameTime);
             publicGameTime = reservedGameTime;
 
-            reservedSpawnTime = float.Parse(spawnTime.text);
+            float.TryParse(spawnTime.text, out reservedSpawnTime);
             publicSpawnTime = reservedSpawnTime;
             }
         }
