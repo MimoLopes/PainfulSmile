@@ -27,29 +27,31 @@ public class enemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(shipSpeed * Time.deltaTime, 0, 0);
+        if(target){
+            transform.Translate(shipSpeed * Time.deltaTime, 0, 0);
 
-        rotationZ = target.transform.position - transform.position;
-        angle = Mathf.Atan2(rotationZ.y, rotationZ.x) * Mathf.Rad2Deg;
-        rb.rotation = angle;
-    
-        distance = Vector3.Distance(target.transform.position, transform.position);
-        
-        if(enemy_2){
-            if(distance < 7.5f){
-                if(wichSpot >= 1f){
-                    target = GameObject.Find("spot_1");
+            rotationZ = target.transform.position - transform.position;
+            angle = Mathf.Atan2(rotationZ.y, rotationZ.x) * Mathf.Rad2Deg;
+            rb.rotation = angle;
+
+            distance = Vector3.Distance(target.transform.position, transform.position);
+
+            if(enemy_2){
+                if(distance < 7.5f){
+                    if(wichSpot >= 1f){
+                        target = GameObject.Find("spot_1");
+                    }
+                    else{
+                        target = GameObject.Find("spot_2");
+                    }
+                }
+
+                if(distance < 1.5f){
+                    shipSpeed = 0;
                 }
                 else{
-                    target = GameObject.Find("spot_2");
+                    shipSpeed = reservedShipSpeed;
                 }
-            }
-
-            if(distance < 1.5f){
-                shipSpeed = 0;
-            }
-            else{
-                shipSpeed = reservedShipSpeed;
             }
         }
     }

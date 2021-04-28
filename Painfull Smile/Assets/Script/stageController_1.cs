@@ -23,11 +23,13 @@ public class stageController_1 : MonoBehaviour
     private bool endGame;
 
     [SerializeField] private float radius = 1;
+
+
     // Start is called before the first frame update
     void Start()
     {
         endGame = false;
-
+        
         gameTime = FindObjectOfType<gameplayInfo>().publicGameTime;
         spawnTime = FindObjectOfType<gameplayInfo>().publicSpawnTime;
         reservedspawnTime = spawnTime;
@@ -57,12 +59,12 @@ public class stageController_1 : MonoBehaviour
             spawnTime = reservedspawnTime;
         }
 
-        if(player && gameTime <= 0){
+        if(player.activeSelf && gameTime <= 0){
             winText.SetActive(true);
             endGame = true;
         }
 
-        if(!player && gameTime > 0){
+        if(!player.activeSelf && gameTime > 0){
             gameOverText.SetActive(true);
             endGame = true;
         }
@@ -91,5 +93,6 @@ public class stageController_1 : MonoBehaviour
 
     public void MainMenu(){
         SceneManager.LoadScene (0);
+        Destroy(GameObject.Find("DataBase"));
     }
 }

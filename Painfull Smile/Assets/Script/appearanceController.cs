@@ -79,7 +79,7 @@ public class appearanceController : MonoBehaviour
         }
         else if(shipLife <= 0){
             Instantiate(explosion, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 

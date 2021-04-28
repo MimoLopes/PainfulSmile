@@ -11,21 +11,14 @@ public class gameplayInfo : MonoBehaviour
     [SerializeField] private Text spawnTime;
 
     private float reservedGameTime;
-    public float publicGameTime;
+    [System.NonSerialized] public float publicGameTime;
 
     private float reservedSpawnTime;
-    public float publicSpawnTime;
+    [System.NonSerialized] public float publicSpawnTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < Object.FindObjectsOfType<gameplayInfo>().Length; i++){
-            if(Object.FindObjectsOfType<gameplayInfo>()[i] != this){
-                if (Object.FindObjectsOfType<gameplayInfo>()[i].name == gameObject.name){
-                    Destroy(gameObject);
-                }
-            }
-        }
         DontDestroyOnLoad (transform.gameObject);
     }
 
@@ -34,11 +27,11 @@ public class gameplayInfo : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 0){
             if(options.activeSelf){
-            float.TryParse(gameTime.text, out reservedGameTime);
-            publicGameTime = reservedGameTime;
+                float.TryParse(gameTime.text, out reservedGameTime);
+                publicGameTime = reservedGameTime;
 
-            float.TryParse(spawnTime.text, out reservedSpawnTime);
-            publicSpawnTime = reservedSpawnTime;
+                float.TryParse(spawnTime.text, out reservedSpawnTime);
+                publicSpawnTime = reservedSpawnTime;
             }
         }
     }

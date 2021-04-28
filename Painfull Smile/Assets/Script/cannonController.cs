@@ -32,10 +32,10 @@ public class cannonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        distance = Vector3.Distance(target.transform.position, transform.position);
-
         if(player){
+
+            distance = Vector3.Distance(target.transform.position, transform.position);
+            
             if(Input.GetMouseButtonDown(2) && cannonFrontContdown <= 0){
                 Instantiate(cannonBall, cannonFront.transform.position, cannonFront.transform.rotation);
 
@@ -66,7 +66,7 @@ public class cannonController : MonoBehaviour
             } 
         }
 
-        if(enemy_2 && distance < 4){
+        if(enemy_2 && distance < 1f){
 
             if(cannonRContdown <= 0 && gameObject.GetComponentInParent<enemyController>().wichSpot >= 1f){
                 for (int i = 0; i < cannonR.Length; i++){
